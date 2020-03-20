@@ -1,0 +1,81 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*每个页面公共css */
+
+
+.tarbar{
+  position: fixed;
+	bottom: 0;
+	height: 60px;
+	width: 750rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+  box-shadow: 0 0  20px 0 rgba(0,0,0,0.23);
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	background-color: white;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;}
+.index,.me{
+  width:250rpx;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.scan{
+  position: fixed;
+  bottom: 0;
+  left: calc(50% - 90rpx);
+  margin: 0 auto;
+  width:180rpx;
+  height: 180rpx;
+  background-color:white;
+  border-radius: 180rpx;
+  box-shadow: 0 0  60px -15px rgba(0,0,0,0.23);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.scan_pic{
+  width: 180rpx;
+  height: 180rpx;
+}
+.index_pic_select,.me_pic_select{
+	width: 100rpx;
+	height: 100rpx;
+}
+.index_pic,.me_pic{
+	width: 60rpx;
+	height: 100rpx;
+}
+
+

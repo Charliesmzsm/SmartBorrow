@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/me/me",
+    "pages/search/search"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "智能快借",
+    "navigationBarBackgroundColor": "#00cd60",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}
