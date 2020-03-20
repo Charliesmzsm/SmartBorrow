@@ -7611,9 +7611,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!**********************************************!*\
-  !*** E:/2020/数媒公众号/SmartQuBorrow/pages.json ***!
-  \**********************************************/
+/*!********************************************!*\
+  !*** E:/2020/数媒公众号/SmartBorrow/pages.json ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8518,20 +8518,20 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 
 /***/ }),
 /* 7 */
-/*!***************************************************************!*\
-  !*** E:/2020/数媒公众号/SmartQuBorrow/pages.json?{"type":"style"} ***!
-  \***************************************************************/
+/*!*************************************************************!*\
+  !*** E:/2020/数媒公众号/SmartBorrow/pages.json?{"type":"style"} ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "智能快借", "navigationBarTextStyle": "white", "usingComponents": {}, "usingAutoImportComponents": { "tarbar": "/components/tarbar/tarbar" } }, "pages/me/me": { "navigationBarTitleText": "我的", "navigationBarTextStyle": "white", "usingComponents": {}, "usingAutoImportComponents": { "tarbar": "/components/tarbar/tarbar" } }, "pages/search/search": { "navigationBarTitleText": "搜索", "navigationBarTextStyle": "white" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "智能快借", "navigationBarBackgroundColor": "#00cd60", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "智能快借", "navigationBarTextStyle": "white", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/me": { "navigationBarTitleText": "我的", "navigationBarTextStyle": "white", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/search/search": { "navigationBarTitleText": "搜索", "navigationBarTextStyle": "white", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "智能快借", "navigationBarBackgroundColor": "#00cd60", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
-/*!**************************************************************!*\
-  !*** E:/2020/数媒公众号/SmartQuBorrow/pages.json?{"type":"stat"} ***!
-  \**************************************************************/
+/*!************************************************************!*\
+  !*** E:/2020/数媒公众号/SmartBorrow/pages.json?{"type":"stat"} ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
