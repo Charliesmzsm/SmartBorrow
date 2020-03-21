@@ -215,6 +215,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -250,6 +261,11 @@ var _default =
     delayed: function delayed() {
       uni.showToast({
         title: '这是延时' });
+
+    },
+    getInfo: function getInfo() {
+      uni.showToast({
+        title: '这是设备' });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
