@@ -267,7 +267,17 @@ var _default =
       uni.showToast({
         title: '这是设备' });
 
-    } } };exports.default = _default;
+    } },
+
+
+  mounted: function mounted() {
+
+  },
+  created: function created() {
+    uni.reLaunch({
+      url: '../login/login' });
+
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

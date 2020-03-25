@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/me/me",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/login/login",
+    "pages/login/detail"
   ],
   "subPackages": [],
   "window": {
@@ -12,5 +14,5 @@
     "backgroundColor": "#F8F8F8"
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap78.json"
+  "sitemapLocation": "sitemap48.json"
 }
