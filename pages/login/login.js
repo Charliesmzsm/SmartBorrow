@@ -157,9 +157,17 @@ var _default =
              *  type 绑定类型  1 stu 2 tea 3 show 4 visit
              */
     go: function go(val) {
-      var type = JSON.stringify(val);
-      uni.navigateTo({
-        url: "detail?type=" + type });
+      if (val === 4) {
+        uni.showToast({
+          title: "暂未开通",
+          icon: "none" });
+
+      } else {
+        var type = JSON.stringify(val);
+        uni.navigateTo({
+          url: "detail?type=" + type });
+
+      }
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

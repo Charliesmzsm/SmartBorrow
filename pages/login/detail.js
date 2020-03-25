@@ -133,7 +133,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
 //
 //
 //
@@ -159,10 +162,50 @@ var _default =
     return {
       type: "",
       id: "",
-      tel: "" };
+      tel: "",
+      oepnid: "",
+      user: {
+        "nickName": "",
+        "avatarUrl": "",
+        "openid": "",
+        "gender": "",
+        "id": "",
+        "tel": "",
+        "type": "" } };
+
 
   },
-  methods: {},
+  methods: {
+    register: function register() {
+      this.user.id = this.id;
+      this.user.tel = this.tel;
+      this.user.type = this.type;
+      if (this.user.id !== "" && this.user.tel !== "") {
+        console.log(this.user);
+        uni.setStorage({
+          key: "user",
+          data: this.user,
+          success: function success() {
+            uni.showToast({
+              title: "正在加载",
+              icon: "loading",
+              duration: 2000,
+              success: function success() {
+                uni.reLaunch({
+                  url: "../index/index" });
+
+              } });
+
+          } });
+
+      } else {
+        uni.showToast({
+          title: "请将信息填写完整",
+          icon: "none" });
+
+      }
+
+    } },
 
 
   onLoad: function onLoad(options) {
@@ -173,19 +216,39 @@ var _default =
       success: function success(res) {
         if (res.code) {
           var code = res.code;
-          var urlVal = 'https://api.weixin.qq.com/sns/jscode2session?appid=' + d.appid + '&secret=' + d.secret + '&js_code=' + res.code + '&grant_type=authorization_code';
+          // 暂时这样写， 后期存储在后端
+          var openid;
+          var appid = 'wxc68c762c3abd5f27';
+          var secret = '2e4921323c11278df709c6ef42ddf7ad';
+          //2e4921323c11278df709c6ef42ddf7ad
+          var urlVal = 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + secret + '&js_code=' + res.code + '&grant_type=authorization_code';
           //  通过appid  appSecret code  authorization_code 获得 openid
+          wx.request({
+            url: urlVal,
+            data: {},
+            header: {
+              'content-type': 'json' },
+
+            success: function success(res) {
+              that.user.openid = res.data.openid; //返回openid
+            } });
+
 
 
           wx.getUserInfo({
             success: function success(res) {
-              console.log(res);
+              var userInfo = [];
+              userInfo = res.userInfo;
+              that.user.nickName = userInfo.nickName;
+              that.user.avatarUrl = userInfo.avatarUrl;
+              that.user.gender = userInfo.gender;
             } });
 
         }
       } });
 
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

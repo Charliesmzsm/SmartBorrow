@@ -264,8 +264,8 @@ var _default =
 
     },
     getInfo: function getInfo() {
-      uni.showToast({
-        title: '这是设备' });
+      uni.navigateTo({
+        url: "../info/info" });
 
     } },
 
@@ -274,9 +274,25 @@ var _default =
 
   },
   created: function created() {
-    uni.reLaunch({
-      url: '../login/login' });
+    uni.getStorage({
+      key: 'user',
+      success: function success(res) {
+        console.log(res);
+        if (res.data.openid === "") {
+          uni.reLaunch({
+            url: '../login/login' });
 
+        }
+      },
+      fail: function fail(res) {
+        uni.reLaunch({
+          url: '../login/login' });
+
+      } });
+
+    // uni.reLaunch({
+    // 	url:'../login/login'
+    // })
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
