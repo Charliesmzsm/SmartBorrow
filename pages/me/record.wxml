@@ -1,0 +1,1 @@
+<view class="container"><block wx:if="{{ifHave===false}}"><equipment vue-id="dd35e732-1" type="{{1}}" equipment="{{equipment}}" bind:__l="__l"></equipment></block><block wx:else><block wx:if="{{ifHave===true}}"><view class="record_word">暂无记录</view></block></block></view>

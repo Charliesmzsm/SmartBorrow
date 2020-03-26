@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "搜索",
+  "navigationBarTitleText": "借用记录",
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "equipment": "/components/equipment/equipment"

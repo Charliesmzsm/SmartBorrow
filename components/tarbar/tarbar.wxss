@@ -52,11 +52,11 @@
   width: 180rpx;
   height: 180rpx;
 }
-.index_pic_select,.me_pic_select{
+.index_pic_select{
 	width: 100rpx;
 	height: 100rpx;
 }
-.index_pic,.me_pic{
+.index_pic,.me_pic,.me_pic_select{
 	width: 60rpx;
 	height: 100rpx;
 }

@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['search']]]]}}" class="index_top_search" bindtap="__e"><view class="index_top_search_word _p">佳能 EOS 500D</view><image class="index_top_search_pic" src="../../static/search.jpg" mode="widthFix"></image></view>

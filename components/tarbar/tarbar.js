@@ -169,6 +169,7 @@ var _default =
         uni.redirectTo({
           url: "../../pages/me/me" });
 
+
       } else {
         uni.redirectTo({
           url: '../../pages/index/index' });
