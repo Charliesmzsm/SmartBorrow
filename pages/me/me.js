@@ -161,7 +161,7 @@ var _default =
   methods: {
     go: function go() {
       uni.navigateTo({
-        url: "./record" });
+        url: "./rank" });
 
     } },
 

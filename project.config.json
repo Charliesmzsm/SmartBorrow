@@ -39,9 +39,8 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/me/record",
-					"pathName": "pages/me/record",
-					"query": "",
+					"name": "pages/index/index",
+					"pathName": "pages/me/rank",
 					"scene": null
 				}
 			]
