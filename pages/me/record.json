@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "借用记录",
   "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "equipment": "/components/equipment/equipment"
   }

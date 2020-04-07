@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "搜索",
   "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "equipment": "/components/equipment/equipment"
   }

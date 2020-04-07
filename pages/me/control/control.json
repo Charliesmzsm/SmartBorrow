@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "登录",
+  "navigationBarTitleText": "设备管理",
   "navigationBarTextStyle": "white",
   "enablePullDownRefresh": true,
   "usingComponents": {}

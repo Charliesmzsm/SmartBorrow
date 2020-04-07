@@ -16,6 +16,34 @@
 	        flex-direction: column;
 	margin-bottom: 40rpx;
 }
+.top1{
+	top: 320rpx;
+	left: 272rpx;
+	height: 70rpx;
+	line-height: 70rpx;
+	font-size: 40rpx;
+}
+.top2{
+	top: 326rpx;
+	left: 32rpx;
+	height: 70rpx;
+	font-size: 36rpx;
+	line-height: 70rpx;
+}
+.top3{
+	top: 340rpx;
+	right: 32rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	font-size: 34rpx;
+}
+.rank_top_name{
+	position: absolute;
+	width: 220rpx;
+	text-align: center;
+	color:white;
+	font-weight: lighter;
+}
 .rank_top_num{
 	width: 750rpx;
 	height: 30rpx;
@@ -37,23 +65,25 @@
 }
 .head{
 	position: absolute;
-	width: 140rpx;
-	height: 140rpx;
 	border-radius: 140rpx;
 }
 .fi{
 	top:60rpx;
 	left:305rpx;
+	width: 140rpx;
+	height: 140rpx;
 }
 .se{
 	top: 76rpx;
-	left:78rpx;
+	left:76rpx;
+	width: 140rpx;
+	height: 140rpx;
 }
 .th{
-	width: 146rpx;
-	height: 146rpx;
-	top: 80rpx;
-	right: 77rpx;
+	top: 78rpx;
+	right: 76rpx;
+	width: 150rpx;
+	height: 150rpx;
 }
 .bottom{
 	display: -webkit-box;

@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "智能快借",
   "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "tarbar": "/components/tarbar/tarbar"
   }

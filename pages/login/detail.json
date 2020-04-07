@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "学生绑定",
   "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
   "usingComponents": {}
 }

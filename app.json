@@ -7,7 +7,8 @@
     "pages/login/detail",
     "pages/info/info",
     "pages/me/record",
-    "pages/me/rank"
+    "pages/me/rank",
+    "pages/me/control/control"
   ],
   "subPackages": [],
   "window": {
@@ -17,5 +18,5 @@
     "backgroundColor": "#F8F8F8"
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap85.json"
+  "sitemapLocation": "sitemap87.json"
 }
