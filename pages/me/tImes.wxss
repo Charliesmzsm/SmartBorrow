@@ -1,0 +1,50 @@
+
+.container{
+	width: 750rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+}
+.times{
+	width: 400rpx;
+	height: 400rpx;
+	border-radius: 400rpx;
+	font-size: 120rpx;
+	margin-top: 400rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-align-content: center;
+	        align-content: center;
+	text-align: center;
+	line-height: 400rpx;
+	color:white;
+}
+.b1{
+	background-image: -webkit-linear-gradient(330deg, #d4fc79 0%, #96e6a1 100%);
+	background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
+.b2{    background-image: -webkit-linear-gradient(bottom, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);    background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)}
+.b3{background-image: -webkit-linear-gradient(330deg, #f6d365 0%, #fda085 100%);background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%)}
+.b4{background-image: -webkit-linear-gradient(left, #fa709a 0%, #fee140 100%);background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);}
+.b5{background-image: -webkit-linear-gradient(bottom, #fddb92 0%, #d1fdff 100%);background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%)}
+.b6{    background-image: -webkit-linear-gradient(top, #2af598 0%, #009efd 100%);    background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%)}
+.b7{    background-image: -webkit-linear-gradient(left, #6a11cb 0%, #2575fc 100%);    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);}
+.b8{background-image: -webkit-linear-gradient(left, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%)}
+.b9{    background-image: -webkit-linear-gradient(bottom, #ff0844 0%, #ffb199 100%);    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);}
+.b10{background-image: -webkit-linear-gradient(bottom, #f77062 0%, #fe5196 100%);background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);}
+.b0{    background-image: -webkit-linear-gradient(315deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%);    background-image: linear-gradient(-225deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%);}
+

@@ -4,26 +4,11 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
-		"es6": false,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
+		"urlCheck": false,
+		"es6": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.4",
+	"libVersion": "2.9.2",
 	"appid": "wxc68c762c3abd5f27",
 	"projectname": "SmartQuBorrow",
 	"simulatorType": "wechat",
@@ -54,8 +39,16 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/me/me",
-					"pathName": "pages/me/me",
+					"name": "pages/me/tImes",
+					"pathName": "pages/me/tImes",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "pages/info/mistake/mistake",
+					"pathName": "pages/info/mistake/mistake",
+					"query": "",
 					"scene": null
 				}
 			]

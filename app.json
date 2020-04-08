@@ -8,7 +8,9 @@
     "pages/info/info",
     "pages/me/record",
     "pages/me/rank",
-    "pages/me/control/control"
+    "pages/me/control/control",
+    "pages/me/tImes",
+    "pages/info/mistake/mistake"
   ],
   "subPackages": [],
   "window": {
@@ -17,6 +19,5 @@
     "navigationBarBackgroundColor": "#00D05E",
     "backgroundColor": "#F8F8F8"
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap87.json"
+  "usingComponents": {}
 }

@@ -166,16 +166,16 @@ var _default =
       { name: '借用记录', url: 'record', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/640b2d56a09a456b8fd6f7a89af63912.png' },
       { name: '当前借用', url: 'now', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/32cd75c7f5924c1d82db9b4306879d4d.png' },
       { name: '剩余时间', url: 'remaining', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/ec0ae8786ede4fb9b990e2b1c56f024e.png' },
-      { name: '发起延时', url: 'borrowTimes', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/9e0ed964a97549a2b88fce6174ce1f3e.png' },
-      { name: '我的消息', url: 'borrowTimes', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/468a6bdb9ea440898497e4e07964823c.png' },
-      { name: '使用帮助', url: 'borrowTimes', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/ef6ffbb4f1fd405cb220a6883d27db49.png' },
-      { name: '联系我们', url: 'borrowTimes', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/6fb641176d524d5c8a9723c236c61807.png' }] };
+      { name: '发起延时', url: 'delay', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/9e0ed964a97549a2b88fce6174ce1f3e.png' },
+      { name: '我的消息', url: 'message', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/468a6bdb9ea440898497e4e07964823c.png' },
+      { name: '使用帮助', url: 'help', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/ef6ffbb4f1fd405cb220a6883d27db49.png' },
+      { name: '联系我们', url: 'contact', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/6fb641176d524d5c8a9723c236c61807.png' }] };
 
 
   },
   methods: {
     go: function go(val) {
-      var url = "";
+      var url = "1";
       switch (val) {
         case 'record':
           url = './record';
@@ -185,13 +185,25 @@ var _default =
           break;
         case 'now':
           url = './control/control';
+          break;
+        case 'times':
+          url = './tImes';
+          break;
+        case 'remaining':
+          url = -1;
+          uni.showToast({
+            title: '当前剩余时间xxxxx',
+            icon: 'none' });
+
           break;}
 
-      if (url !== "") {
+
+      //  url === -1时不进行页面切换
+      if (url !== -1) {
         uni.navigateTo({
           url: url });
 
-      } else {
+      } else if (url === 1) {
         uni.showToast({
           title: '尚未开放' });
 

@@ -239,7 +239,12 @@ var _default =
         belong: '浙江科技学院',
         type: true },
 
-      freeItem: [1, 2, 3, 4, 5, 6] };
+      freeItem: [],
+      state: [
+      { name: '借出中', type: 0 },
+      { name: '空闲中', type: 1 },
+      { name: '维护中', type: 2 }] };
+
 
 
   },
@@ -268,20 +273,45 @@ var _default =
 
     } },
 
-
   mounted: function mounted() {
     // 获得轮播图
     var that = this;
 
     uni.request({
-      url: 'http://192.168.1.67:8889/api/miniapp/user/get/carouselimg',
+      url: this.configUrl() + 'miniapp/user/get/carouselimg',
       success: function success(res) {
         that.imageUrl = [];
         res.data.data.forEach(function (item) {
           that.imageUrl.push('http://192.168.1.67:8889/' + item.picture);
         });
-        console.log(that.imageUrl);
       } });
+
+
+    // 获取 设备信息
+    uni.request({
+      url: this.configUrl() + 'miniapp/device/get/alldevice',
+      success: function success(res) {
+        if (res.data.data.length !== 0) {
+          res.data.data.forEach(function (item) {
+            that.freeItem.push({
+              device_pic: that.configUrl + item.device_pic,
+              id: item.device_id,
+              device_name: item.device_name,
+              position: item.position,
+              status: item.status });
+
+          });
+        }
+      } });
+
+    // 获取使用设备
+
+    uni.request({
+      url: that.configUrl() + 'miniapp/device/get/alldevice/1',
+      success: function success(res) {
+        console.log(res);
+      } });
+
 
   },
   onPullDownRefresh: function onPullDownRefresh() {

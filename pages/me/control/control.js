@@ -169,19 +169,14 @@ var _default =
   data: function data() {
     return {
       state: [
-      { name: '借出', type: 0 },
       { name: '空闲', type: 1 },
-      { name: '维护', type: 2 }],
+      { name: '借出', type: 2 },
+      { name: '维护', type: 3 }],
 
       nowSelect: 0,
       nowInfo: [
       { type: 4 },
-      { name: "佳能 EOS D7", place: "数媒实验室618", id: '086479', time: '2019-03-11 12:33', lastTime: "3h52min07s", img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585410073468&di=21d22f178aae87256643bd68f19783b9&imgtype=0&src=http%3A%2F%2Fimg6.diyju.com%2F02%2F2424540024%2F17030104113731.jpg", type: 0 },
-      { name: "佳能 EOS D7", place: "数媒实验室618", id: '086479', time: '2019-03-11 12:33', lastTime: "3h52min07s", img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585410073468&di=21d22f178aae87256643bd68f19783b9&imgtype=0&src=http%3A%2F%2Fimg6.diyju.com%2F02%2F2424540024%2F17030104113731.jpg", type: 1 },
-      { name: "佳能 EOS D7", place: "数媒实验室618", id: '086479', time: '2019-03-11 12:33', lastTime: "3h52min07s", img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585410073468&di=21d22f178aae87256643bd68f19783b9&imgtype=0&src=http%3A%2F%2Fimg6.diyju.com%2F02%2F2424540024%2F17030104113731.jpg", type: 1 },
-      { name: "佳能 EOS D7", place: "数媒实验室618", id: '086479', time: '2019-03-11 12:33', lastTime: "3h52min07s", img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585410073468&di=21d22f178aae87256643bd68f19783b9&imgtype=0&src=http%3A%2F%2Fimg6.diyju.com%2F02%2F2424540024%2F17030104113731.jpg", type: 2 },
-      { name: "佳能 EOS D7", place: "数媒实验室618", id: '086479', time: '2019-03-11 12:33', lastTime: "3h52min07s", img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585410073468&di=21d22f178aae87256643bd68f19783b9&imgtype=0&src=http%3A%2F%2Fimg6.diyju.com%2F02%2F2424540024%2F17030104113731.jpg", type: 2 },
-      { name: "佳能 EOS D7", place: "数媒实验室618", id: '086479', time: '2019-03-11 12:33', lastTime: "3h52min07s", img: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2488779870,858207751&fm=26&gp=0.jpg", type: 2 }] };
+      { name: "佳能 EOS D7", place: "数媒实验室618", id: '086479', time: '2019-03-11 12:33', lastTime: "3h52min07s", img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585410073468&di=21d22f178aae87256643bd68f19783b9&imgtype=0&src=http%3A%2F%2Fimg6.diyju.com%2F02%2F2424540024%2F17030104113731.jpg", type: 1 }] };
 
 
   },
@@ -191,7 +186,7 @@ var _default =
     },
     updateState: function updateState(val) {
       var that = this;
-      if (this.nowInfo[val].type === 0) {
+      if (this.nowInfo[val].type === 2) {
         uni.showToast({
           title: "无法修改",
           icon: 'none' });
@@ -205,7 +200,7 @@ var _default =
           success: function success(res) {
             if (res.confirm) {
               if (that.nowInfo[val].type === 1) {
-                that.nowInfo[val].type = 2;
+                that.nowInfo[val].type = 3;
               } else
               {
                 that.nowInfo[val].type = 1;
@@ -216,7 +211,38 @@ var _default =
 
       }
 
-    } } };exports.default = _default;
+    },
+    getItem: function getItem(val) {
+      var that = this;
+      uni.request({
+        url: this.configUrl() + 'miniapp/device/get/device/' + val,
+        success: function success(res) {
+          if (res.data.data !== 0) {
+            res.data.data.forEach(function (item) {
+              that.nowInfo.push({
+                name: item.device_name,
+                img: that.configUrl() + item.device_pic,
+                place: item.position,
+                type: item.status,
+                id: item.device_id });
+
+            });
+          }
+          console.log(res);
+        } });
+
+    } },
+
+  mounted: function mounted() {
+
+  },
+  created: function created() {
+    var that = this;
+    this.getItem(1);
+    this.getItem(2);
+    this.getItem(3);
+    console.log(this.nowInfo);
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

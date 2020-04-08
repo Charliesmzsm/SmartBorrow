@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "借用次数",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

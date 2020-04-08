@@ -19,6 +19,12 @@ _vue.default.use('equipment', _equipment.default);
 _vue.default.use('search', _search.default);
 _vue.default.config.productionTip = false;
 
+_vue.default.prototype.configUrl = function () {
+  return 'http://192.168.1.67:8889/api/';
+};
+
+
+
 _App.default.mpType = 'app';
 
 var app = new _vue.default(_objectSpread({},

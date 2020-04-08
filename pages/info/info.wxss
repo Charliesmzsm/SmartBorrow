@@ -5,6 +5,19 @@ page{
 .container{
 	width: 750rpx;
 }
+.mistake{
+	width: 100rpx;
+	height: 100rpx;
+	background-image: -webkit-linear-gradient(330deg, #f6d365 0%, #fda085 100%);
+	background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);	border-radius: 100rpx;
+	text-align: center;
+	line-height: 100rpx;
+	font-weight: lighter;
+	color:white;
+	position: absolute;
+	right:20rpx;
+	bottom: 300rpx;
+}
 .using{background-color: #ff0000;}
 .free{background-color: #33cc00;}
 .breaking{background-color: #cccccc;}

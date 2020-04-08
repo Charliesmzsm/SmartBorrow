@@ -1,0 +1,1 @@
+<view><view class="ifSubmit"><view class="title"><view class="title_word">标题:</view><input class="title_input" type="text"/></view><view class="content"><view class="content_title">内容:</view><textarea class="content_word" value="" placeholder="填写内容"></textarea></view></view><button>提交</button></view>

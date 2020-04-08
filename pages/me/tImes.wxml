@@ -1,0 +1,1 @@
+<view class="container"><view class="{{[(true)?'times':'',(bgN==0)?'b0':'',(bgN==1)?'b1':'',(bgN==2)?'b2':'',(bgN==3)?'b3':'',(bgN==4)?'b4':'',(bgN==5)?'b5':'',(bgN==6)?'b6':'',(bgN==7)?'b7':'',(bgN==8)?'b8':'',(bgN==9)?'b9':'',(bgN==10)?'b10':'']}}"><view>21</view><text style="color:#666666;font-size:40rpx;">次</text></view></view>
