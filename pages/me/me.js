@@ -155,21 +155,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
     return {
       user: [],
       meItem: [
-      { name: '借用次数', url: 'times', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/b1bb2c3d6a1549d5a7d46381d3f5ca27.png' },
-      { name: '当前排行', url: 'rank', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/9f413026a6c6412aa4a7a5c9a19e7859.png' },
-      { name: '借用记录', url: 'record', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/640b2d56a09a456b8fd6f7a89af63912.png' },
-      { name: '当前借用', url: 'now', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/32cd75c7f5924c1d82db9b4306879d4d.png' },
-      { name: '剩余时间', url: 'remaining', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/ec0ae8786ede4fb9b990e2b1c56f024e.png' },
-      { name: '发起延时', url: 'delay', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/9e0ed964a97549a2b88fce6174ce1f3e.png' },
-      { name: '我的消息', url: 'message', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/468a6bdb9ea440898497e4e07964823c.png' },
-      { name: '使用帮助', url: 'help', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/ef6ffbb4f1fd405cb220a6883d27db49.png' },
-      { name: '联系我们', url: 'contact', img: 'http://192.168.1.67:8889/public/upload/image/2020/4/7/6fb641176d524d5c8a9723c236c61807.png' }] };
+      { name: '借用次数', url: 'times', img: this.configUrlImg() + '/public/upload/image/2020/4/7/b1bb2c3d6a1549d5a7d46381d3f5ca27.png' },
+      { name: '当前排行', url: 'rank', img: this.configUrlImg() + '/public/upload/image/2020/4/7/9f413026a6c6412aa4a7a5c9a19e7859.png' },
+      { name: '借用记录', url: 'record', img: this.configUrlImg() + '/public/upload/image/2020/4/7/640b2d56a09a456b8fd6f7a89af63912.png' },
+      { name: '当前借用', url: 'now', img: this.configUrlImg() + '/public/upload/image/2020/4/7/32cd75c7f5924c1d82db9b4306879d4d.png' },
+      { name: '剩余时间', url: 'remaining', img: this.configUrlImg() + '/public/upload/image/2020/4/7/ec0ae8786ede4fb9b990e2b1c56f024e.png' },
+      { name: '发起延时', url: 'delay', img: this.configUrlImg() + '/public/upload/image/2020/4/7/9e0ed964a97549a2b88fce6174ce1f3e.png' },
+      { name: '我的消息', url: 'message', img: this.configUrlImg() + '/public/upload/image/2020/4/7/468a6bdb9ea440898497e4e07964823c.png' },
+      { name: '使用帮助', url: 'help', img: this.configUrlImg() + '/public/upload/image/2020/4/7/ef6ffbb4f1fd405cb220a6883d27db49.png' },
+      { name: '关于我们', url: 'contact', img: this.configUrlImg() + '/public/upload/image/2020/4/7/6fb641176d524d5c8a9723c236c61807.png' }] };
 
 
   },
@@ -184,10 +185,14 @@ var _default =
           url = './rank';
           break;
         case 'now':
-          url = './control/control';
+          url = './nowBorrow/nowBorrow';
           break;
         case 'times':
-          url = './tImes';
+          url = '-1';
+          uni.showToast({
+            title: '共借用5次',
+            icon: 'none' });
+
           break;
         case 'remaining':
           url = -1;
@@ -195,17 +200,28 @@ var _default =
             title: '当前剩余时间xxxxx',
             icon: 'none' });
 
+          break;
+        case 'contact':
+          url = './contact';
+          break;
+        case 'help':
+          url = './help';
+          break;
+        case 'message':
+          url = './message';
           break;}
 
 
+
       //  url === -1时不进行页面切换
-      if (url !== -1) {
+      if (url !== -1 && url !== "1") {
         uni.navigateTo({
           url: url });
 
-      } else if (url === 1) {
+      } else if (url === "1") {
         uni.showToast({
-          title: '尚未开放' });
+          title: '尚未开放',
+          icon: "none" });
 
       }
     },
@@ -243,6 +259,7 @@ var _default =
             break;}
 
         that.user = res.data;
+
 
       } });
 

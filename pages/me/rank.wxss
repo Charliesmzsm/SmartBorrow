@@ -1,4 +1,7 @@
 
+page{
+		background: white;
+}
 .rank_top{
 	width: 750rpx;
 	height: 460rpx;

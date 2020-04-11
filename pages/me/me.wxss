@@ -1,4 +1,7 @@
 
+page{
+		background: white;
+}
 .container{
 	width: 750rpx;
 }

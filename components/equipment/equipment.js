@@ -153,7 +153,11 @@ var _default =
       default: 1 },
 
     equipment: {
-      type: Array } } };exports.default = _default;
+      type: Array } },
+
+
+  mounted: function mounted() {
+  } };exports.default = _default;
 
 /***/ }),
 

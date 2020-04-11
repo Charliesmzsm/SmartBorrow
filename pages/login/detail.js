@@ -152,12 +152,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 var _default =
 {
   data: function data() {
     return {
+      img: {
+        user: this.configUrlImg() + '/public/upload/image/2020/4/9/b1bcb01bb860406fb0fd29ae23ae598d.png',
+        tel: this.configUrlImg() + '/public/upload/image/2020/4/9/1d25a2f24861441d8bbae6bd22523250.png' },
+
       type: "",
       id: "",
       tel: "",
@@ -170,7 +172,7 @@ var _default =
         "id": "",
         "tel": "",
         "type": "",
-        "credit": "10" } };
+        "credit_score": "10" } };
 
 
   },
@@ -181,6 +183,11 @@ var _default =
       this.user.type = this.type;
       if (this.user.id !== "" && this.user.tel !== "") {
         console.log(this.user);
+
+        uni.request({
+          url: this.configUrl() });
+
+
         uni.setStorage({
           key: "user",
           data: this.user,
@@ -208,6 +215,7 @@ var _default =
 
 
   onLoad: function onLoad(options) {
+    console.log(this.img);
     var type = JSON.parse(options.type);
     this.type = type;
     var that = this;

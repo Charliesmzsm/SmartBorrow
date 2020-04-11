@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -147,31 +147,43 @@ var _default =
   data: function data() {
     return {
       ifHave: false, // 
-      equipment: [
-      {
-        name: "佳能 EOS 500D",
-        type: 1,
-        content: "空闲中" },
-
-      {
-        name: "1312312",
-        type: 2,
-        content: "占用中" },
-
-      {
-        name: "1312312",
-        type: 3,
-        content: "维护中" },
-
-      {
-        name: "1312312",
-        type: 3,
-        content: "维护中" }] };
+      equipment: [] };
 
 
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    getEqepment: function getEqepment() {
+      var that = this;
+      uni.request({
+        url: that.configUrl() + 'miniapp/user/record/1',
+        success: function success(res) {
+          console.log(res);
+          if (res.data.data.length >= 0) {
+            that.equipment = [];
+            res.data.data.forEach(function (item) {
+              var time = new Date(item.ctime);
+              that.equipment.push({
+                name: item.device_name,
+                ctime: time.getFullYear() + '-' + String(time.getMonth() + 1).padStart(2, '0') + '-' + String(time.getDate()).padStart(2, '0') + '-' + time.getHours() + '.' + time.getMinutes() + '.' + time.getSeconds(),
+                number: item.device_number,
+                belong: item.belong,
+                type: item.status,
+                content: item.status === 1 ? '空闲中' : item.status === 2 ? '占用中' : '维护中',
+                img: that.configUrlImg() + item.device_pic,
+                position: item.position });
+
+            });
+          }
+        } });
+
+    } },
+
+  created: function created() {
+    this.getEqepment();
+
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

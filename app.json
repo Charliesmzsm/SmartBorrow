@@ -10,7 +10,12 @@
     "pages/me/rank",
     "pages/me/control/control",
     "pages/me/tImes",
-    "pages/info/mistake/mistake"
+    "pages/info/mistake/mistake",
+    "pages/me/contact",
+    "pages/me/add/add",
+    "pages/me/help",
+    "pages/me/nowBorrow/nowBorrow",
+    "pages/me/message"
   ],
   "subPackages": [],
   "window": {

@@ -1,6 +1,7 @@
 
 page.data-v-3523e786{
 		width:750rpx;
+		background: white;
 }
 .container.data-v-3523e786{
 	width: 750rpx;

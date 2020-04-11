@@ -184,6 +184,11 @@ var _default =
     changePage: function changePage(index) {
       this.nowSelect = index;
     },
+    goToAdd: function goToAdd() {
+      uni.navigateTo({
+        url: '../add/add' });
+
+    },
     updateState: function updateState(val) {
       var that = this;
       if (this.nowInfo[val].type === 2) {
@@ -217,18 +222,20 @@ var _default =
       uni.request({
         url: this.configUrl() + 'miniapp/device/get/device/' + val,
         success: function success(res) {
+          console.log(res);
           if (res.data.data !== 0) {
             res.data.data.forEach(function (item) {
+              var time = new Date(item.ctime);
               that.nowInfo.push({
                 name: item.device_name,
-                img: that.configUrl() + item.device_pic,
+                img: that.configUrlImg() + item.device_pic,
                 place: item.position,
                 type: item.status,
-                id: item.device_id });
+                id: item.device_id,
+                ctime: time.getFullYear() + '-' + String(time.getMonth() + 1).padStart(2, '0') + '-' + String(time.getDate()).padStart(2, '0') + '-' + time.getHours() + '.' + time.getMinutes() + '.' + time.getSeconds() });
 
             });
           }
-          console.log(res);
         } });
 
     } },
@@ -241,7 +248,6 @@ var _default =
     this.getItem(1);
     this.getItem(2);
     this.getItem(3);
-    console.log(this.nowInfo);
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

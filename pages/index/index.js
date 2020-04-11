@@ -261,6 +261,15 @@ var _default =
       uni.showToast({
         title: '这是归还' });
 
+      uni.clearStorage({
+        key: 'user',
+        success: function success() {
+          uni.showToast({
+            title: "清空本地记录成功",
+            icon: 'none' });
+
+        } });
+
     },
     delayed: function delayed() {
       uni.showToast({
@@ -271,6 +280,9 @@ var _default =
       uni.navigateTo({
         url: "../info/info" });
 
+    },
+    getUserInfo: function getUserInfo() {
+      // 通过oppenid 获取 用户信息，如果openid不存在，则跳转至
     } },
 
   mounted: function mounted() {
@@ -287,23 +299,24 @@ var _default =
       } });
 
 
-    // 获取 设备信息
-    uni.request({
-      url: this.configUrl() + 'miniapp/device/get/alldevice',
-      success: function success(res) {
-        if (res.data.data.length !== 0) {
-          res.data.data.forEach(function (item) {
-            that.freeItem.push({
-              device_pic: that.configUrl + item.device_pic,
-              id: item.device_id,
-              device_name: item.device_name,
-              position: item.position,
-              status: item.status });
-
-          });
-        }
-      } });
-
+    // 获取 全部设备信息
+    // uni.request({
+    // 	url:this.configUrl()+'miniapp/device/get/alldevice',
+    // 	success(res) {
+    // 		console.log(res)
+    // 		if(res.data.data.length!==0){
+    // 			res.data.data.forEach((item)=>{
+    // 				that.freeItem.push({
+    // 					device_pic:that.configUrl+item.device_pic,
+    // 					id:item.device_id,
+    // 					device_name:item.device_name,
+    // 					position:item.position,
+    // 					status:item.status
+    // 				})
+    // 			})
+    // 		}
+    // 	}
+    // })
     // 获取使用设备
 
     uni.request({
@@ -311,6 +324,8 @@ var _default =
       success: function success(res) {
         console.log(res);
       } });
+
+
 
 
   },

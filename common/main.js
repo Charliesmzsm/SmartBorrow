@@ -22,7 +22,9 @@ _vue.default.config.productionTip = false;
 _vue.default.prototype.configUrl = function () {
   return 'http://192.168.1.67:8889/api/';
 };
-
+_vue.default.prototype.configUrlImg = function () {
+  return 'http://192.168.1.67:8889';
+};
 
 
 _App.default.mpType = 'app';
@@ -113,7 +115,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     console.log('App Show');
   },
   onHide: function onHide() {
-    console.log('App Hide');
+    console.log('App Haide');
   } };exports.default = _default;
 
 /***/ }),
@@ -645,7 +647,11 @@ var _default =
       default: 1 },
 
     equipment: {
-      type: Array } } };exports.default = _default;
+      type: Array } },
+
+
+  mounted: function mounted() {
+  } };exports.default = _default;
 
 /***/ }),
 /* 34 */
