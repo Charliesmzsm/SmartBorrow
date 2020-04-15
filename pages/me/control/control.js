@@ -164,10 +164,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
     return {
+      searchI: "",
+      user: [],
       state: [
       { name: '空闲', type: 1 },
       { name: '借出', type: 2 },
@@ -176,8 +179,9 @@ var _default =
       nowSelect: 0,
       nowInfo: [
       { type: 4 },
-      { name: "佳能 EOS D7", place: "数媒实验室618", id: '086479', time: '2019-03-11 12:33', lastTime: "3h52min07s", img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585410073468&di=21d22f178aae87256643bd68f19783b9&imgtype=0&src=http%3A%2F%2Fimg6.diyju.com%2F02%2F2424540024%2F17030104113731.jpg", type: 1 }] };
+      { name: "佳能 EOS D7", place: "数媒实验室618", id: '086479', time: '2019-03-11 12:33', lastTime: "3h52min07s", img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585410073468&di=21d22f178aae87256643bd68f19783b9&imgtype=0&src=http%3A%2F%2Fimg6.diyju.com%2F02%2F2424540024%2F17030104113731.jpg", type: 1 }],
 
+      ifSearch: false };
 
   },
   methods: {
@@ -222,7 +226,6 @@ var _default =
       uni.request({
         url: this.configUrl() + 'miniapp/device/get/device/' + val,
         success: function success(res) {
-          console.log(res);
           if (res.data.data !== 0) {
             res.data.data.forEach(function (item) {
               var time = new Date(item.ctime);
@@ -238,9 +241,53 @@ var _default =
           }
         } });
 
+    },
+    searchInfo: function searchInfo() {
+      var that = this;
+      uni.request({
+        url: that.configUrl() + 'miniapp/user/search',
+        data: {
+          belong_number: 618,
+          name: that.searchI },
+
+        success: function success(res) {
+          that.ifSearch = true;
+          that.nowInfo = [];
+          if (res.data.data !== 0) {
+            that.nowInfo.push({
+              type: 4 });
+
+            res.data.data.forEach(function (item) {
+              var time = new Date(item.ctime);
+              that.nowInfo.push({
+                name: item.device_name,
+                img: that.configUrlImg() + item.device_pic,
+                place: item.position,
+                type: item.status,
+                id: item.device_id,
+                ctime: time.getFullYear() + '-' + String(time.getMonth() + 1).padStart(2, '0') + '-' + String(time.getDate()).padStart(2, '0') + '-' + time.getHours() + '.' + time.getMinutes() + '.' + time.getSeconds() });
+
+            });
+          }
+        } });
+
+
+    },
+    goFinish: function goFinish() {
+      this.ifSearch = false;
+      this.getItem(1);
+      this.getItem(2);
+      this.getItem(3);
     } },
 
   mounted: function mounted() {
+    // 获得用户信息
+    var that = this;
+    uni.getStorage({
+      key: 'user',
+      success: function success(res) {
+        that.user = res.data;
+      } });
 
   },
   created: function created() {

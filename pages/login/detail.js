@@ -165,68 +165,93 @@ var _default =
       tel: "",
       oepnid: "",
       user: {
-        "nickName": "",
-        "avatarUrl": "",
-        "openid": "",
-        "gender": "",
-        "id": "",
-        "tel": "",
-        "type": "",
-        "credit_score": "10" } };
+        "wx_name": "",
+        "wx_pic": "",
+        "user_number": "",
+        "phone": "",
+        "open_id": "",
+        "wx_id": '111' } };
 
 
   },
   methods: {
     register: function register() {
-      this.user.id = this.id;
-      this.user.tel = this.tel;
-      this.user.type = this.type;
-      if (this.user.id !== "" && this.user.tel !== "") {
-        console.log(this.user);
+      var that = this;
+      this.user.phone = this.tel;
+      this.user.user_number = this.id;
+      this.showLoading();
+      if (this.user.user_number !== "" && this.user.phone !== "") {
+        if (this.user.phone.length === 11) {
+          uni.request({
+            url: that.configUrl() + 'miniapp/user/bind',
+            data: that.user,
+            dataType: 'JSON',
+            method: 'POST',
+            header: { 'Content-type': 'application/x-www-form-urlencoded' },
+            success: function success(res) {
+              console.log(res);
+              var result = JSON.parse(res.data);
+              if (result.data.length === 1 && result.msg.error === '') {
+                uni.setStorage({
+                  key: "user",
+                  data: that.user,
+                  success: function success() {
+                    uni.reLaunch({
+                      url: "../index/index",
+                      success: function success() {
+                        uni.hideLoading();
+                      } });
 
-        uni.request({
-          url: this.configUrl() });
+                  } });
 
+              } else {
+                var msg = result.msg.error !== '' ? result.msg.error : result.msg.prompt;
+                that.showTotast(msg, 'none');
+                uni.hideLoading();
+              }
+            } });
 
-        uni.setStorage({
-          key: "user",
-          data: this.user,
-          success: function success() {
-            uni.showToast({
-              title: "正在加载",
-              icon: "loading",
-              duration: 2000,
-              success: function success() {
-                uni.reLaunch({
-                  url: "../index/index" });
-
-              } });
-
-          } });
-
+        } else {
+          this.showTotast('电话号码填写错误', 'none');
+        }
       } else {
-        uni.showToast({
-          title: "请将信息填写完整",
-          icon: "none" });
-
+        this.showTotast('请将信息填写完整', 'none');
       }
+
+    },
+    showTotast: function showTotast(title, type) {
+      uni.showToast({
+        title: title,
+        icon: type });
 
     } },
 
 
   onLoad: function onLoad(options) {
-    console.log(this.img);
     var type = JSON.parse(options.type);
-    this.type = type;
+    this.type = 1;
     var that = this;
+    var appid, secret;
+    uni.request({
+      url: that.configUrl() + 'miniapp/common/open',
+      method: 'GET',
+      success: function success(res) {
+        if (res.data.data.length === 1) {
+          var result = res.data.data;
+          appid = result[0].appId;
+          secret = result[0].secret;
+        }
+      } });
+
+
     wx.login({
       success: function success(res) {
         if (res.code) {
           var code = res.code;
-          // 暂时这样写， 后期存储在后端
+
           var openid;
-          var appid = 'wxc68c762c3abd5f27';
-          var secret = '2e4921323c11278df709c6ef42ddf7ad';
+          // let appid='wxc68c762c3abd5f27'
+          // let secret='2e4921323c11278df709c6ef42ddf7ad'
           //2e4921323c11278df709c6ef42ddf7ad
           var urlVal = 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + secret + '&js_code=' + res.code + '&grant_type=authorization_code';
           //  通过appid  appSecret code  authorization_code 获得 openid
@@ -237,18 +262,18 @@ var _default =
               'content-type': 'json' },
 
             success: function success(res) {
-              that.user.openid = res.data.openid; //返回openid
+              that.user.open_id = res.data.openid; //返回openid
             } });
 
 
 
           wx.getUserInfo({
             success: function success(res) {
+              console.log(res);
               var userInfo = [];
               userInfo = res.userInfo;
-              that.user.nickName = userInfo.nickName;
-              that.user.avatarUrl = userInfo.avatarUrl;
-              that.user.gender = userInfo.gender;
+              that.user.wx_name = userInfo.nickName;
+              that.user.wx_pic = userInfo.avatarUrl;
             } });
 
         }

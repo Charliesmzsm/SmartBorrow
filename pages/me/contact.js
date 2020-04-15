@@ -131,7 +131,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -207,10 +207,56 @@ var _default =
       { title: '电话', word: "0571-85070303", img: '../../static/contact/dianhua.png' },
       { title: 'e-mail', word: "zust_dm@163.com", img: '../../static/contact/youxiang.png' }],
 
-      team: [1, 2, 123, 123, 1, 1, 1] };
+      team: [1, 2, 123, 123, 1, 1, 1],
+      version: [] };
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    getTeam: function getTeam() {
+      // 获取团队信息
+      var that = this;
+      uni.request({
+        url: that.configUrl() + 'miniapp/common/develop',
+        success: function success(res) {
+          console.log(res);
+          that.team = [];
+          res.data.data.forEach(function (item) {
+            that.team.push({
+              develop_id: item.develop_id,
+              end_time: item.end_time === null ? '至今' : item.end_time,
+              name: item.name,
+              position: item.position,
+              start_time: item.start_time,
+              grade: item.grade });
+
+          });
+        } });
+
+    },
+    getVersionInfo: function getVersionInfo() {
+      // 获得开发版本信息
+      var that = this;
+      uni.request({
+        url: that.configUrl() + 'miniapp/common/version',
+        success: function success(res) {
+          console.log(res);
+          that.version = [];
+          res.data.data.forEach(function (item) {
+            that.version.push({
+              version_id: item.version_id,
+              version: item.version,
+              change: item.change });
+
+          });
+        } });
+
+    } },
+
+  created: function created() {
+    this.getTeam();
+    this.getVersionInfo();
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

@@ -39,8 +39,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/me/add/add",
-					"pathName": "pages/me/add/add",
+					"name": "pages/me/control/control",
+					"pathName": "pages/me/control/control",
 					"query": "",
 					"scene": null
 				}

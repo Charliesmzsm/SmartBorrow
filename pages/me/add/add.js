@@ -216,12 +216,12 @@ var _default =
 
   methods: {
     ChooseImage: function ChooseImage() {var _this = this;
+      var that = this;
       uni.chooseImage({
         count: 1, //默认9
         sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
         sourceType: ['album', 'camera'], //从相册选择
         success: function success(res) {
-          console.log(res);
           if (_this.imgList.length != 0) {
             _this.imgList.push(res.tempFilePaths[0]);
           } else {
@@ -247,11 +247,18 @@ var _default =
       console.log(this.imgList);
       var that = this;
       uni.uploadFile({
-        url: that.configUrl + "upload/image/single",
+        url: that.configUrl() + "upload/image/single",
         filePath: that.imgList[0],
-        header: { "Content-Type": "multipart/form-data" }, name: 'file',
+        header: { "Content-Type": "multipart/form-data" },
+        name: 'file',
         success: function success(res) {
-          console.log(res.data);
+          if (res.data.data.length !== 0) {
+            that.imgUrl = res.data.data;
+            uni.request({
+              url: that.configUrl() + 'miniapp/device/add' });
+
+
+          }
         },
         fail: function fail(res) {
           console.log(res);

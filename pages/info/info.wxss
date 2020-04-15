@@ -54,6 +54,7 @@ page{
 	position: relative;
 	top: 30rpx;
 	left: 60rpx;
+	z-index:999;
 }
 .info_top_word{
 	color:black;

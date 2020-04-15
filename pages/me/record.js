@@ -156,7 +156,8 @@ var _default =
     getEqepment: function getEqepment() {
       var that = this;
       uni.request({
-        url: that.configUrl() + 'miniapp/user/record/1',
+        url: that.configUrl() + 'miniapp/user/record',
+        data: { user_id: 1 },
         success: function success(res) {
           console.log(res);
           if (res.data.data.length >= 0) {

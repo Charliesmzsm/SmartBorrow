@@ -1,4 +1,18 @@
 
+.finish{
+		width: 100rpx;
+		height: 100rpx;
+		background-image: -webkit-linear-gradient(330deg, #f6d365 0%, #fda085 100%);
+		background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);	border-radius: 100rpx;
+		text-align: center;
+		line-height: 100rpx;
+		font-weight: lighter;
+		color:white;
+		position: absolute;
+		right:20rpx;
+		bottom: 100rpx;
+		font-size: 32rpx;
+}
 .placeholder{
 	color:#CCCCCC;
 	font-size: 30rpx;
