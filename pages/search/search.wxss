@@ -156,7 +156,9 @@ page.data-v-25a1bdd7{
   	text-align: center;
   	line-height: 100rpx;
   	font-size: 24rpx;
-	background: #F2F2F2;
+	background: white;
+/* 	background: #F2F2F2;
+ */
 }
 .right_formtext.data-v-25a1bdd7{
 	  color: #DD524D;

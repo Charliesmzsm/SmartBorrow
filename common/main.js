@@ -20,11 +20,17 @@ _vue.default.config.productionTip = false;
 
 // 公用函数  一般地址url
 _vue.default.prototype.configUrl = function () {
-  return 'http://192.168.1.67:8889/api/';
+  // return 'http://127.0.0.1:8889/api/'
+  // return 'http://192.168.1.67:8889/api/'
+  return 'http://localhost:8889/api/';
 };
 //  图片url
 _vue.default.prototype.configUrlImg = function () {
-  return 'http://192.168.1.67:8889';
+  // return 'http://localhost:8889'
+
+  return 'http:///127.0.0.1:8889';
+  // return 'http://192.168.1.67:8889'
+
 };
 // 加载开始
 _vue.default.prototype.showLoading = function () {
@@ -617,7 +623,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -655,12 +661,31 @@ var _default =
       type: Number,
       default: 1 },
 
+    content: [
+    { name: '空闲中' },
+    { name: '借出中' },
+    { name: '维护中' }],
+
+
     equipment: {
       type: Array } },
 
 
+
+  methods: {
+    goToInfo: function goToInfo(val) {
+      this.showLoading();
+      console.log();
+      var device_id = JSON.stringify(val);
+      uni.navigateTo({
+        url: '../../pages/info/info?id=' + device_id });
+
+
+    } },
+
   mounted: function mounted() {
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 34 */
